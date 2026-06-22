@@ -1,38 +1,215 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bijouterie Aourir - بطاقة العمل الرقمية</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<style>
-:root { --gold-primary: #D4AF37; --gold-secondary: #AA7C11; --dark-bg: #111111; --card-bg: #1a1a1a; --text-light: #ffffff; --text-gray: #b3b3b3; }
-body { font-family: 'Segoe UI', Tahoma, sans-serif; background-color: var(--dark-bg); color: var(--text-light); margin: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
-.card-container { width: 100%; max-width: 400px; background: var(--card-bg); border: 1px solid rgba(212, 175, 55, 0.2); border-radius: 20px; padding: 30px 20px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.5); margin: 20px; }
-.logo-area { width: 100px; height: 100px; background: linear-gradient(135deg, var(--gold-primary), var(--gold-secondary)); border-radius: 50%; margin: 0 auto 20px; display: flex; justify-content: center; align-items: center; font-size: 40px; color: var(--dark-bg); }
-h1 { font-size: 24px; color: var(--gold-primary); margin: 10px 0 5px; }
-.tagline { font-size: 14px; color: var(--text-gray); margin-bottom: 25px; }
-.links-container { display: flex; flex-direction: column; gap: 15px; }
-.btn-link { display: flex; align-items: center; justify-content: space-between; padding: 15px 20px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 12px; color: var(--text-light); text-decoration: none; font-weight: 600; transition: 0.3s; }
-.btn-link:hover { background: linear-gradient(135deg, var(--gold-primary), var(--gold-secondary)); color: var(--dark-bg); }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bijouterie Aourir - بطاقة العمل الرقمية</title>
+    <!-- استيراد الأيقونات والخطوط الحديثة -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        :root {
+            --gold-gradient: linear-gradient(135deg, #BF953F 0%, #FCF6BA 25%, #B38728 50%, #FBF5B7 75%, #AA771C 100%);
+            --gold-solid: #D4AF37;
+            --bg-dark: #0d0d0d;
+            --card-bg: rgba(25, 25, 25, 0.85);
+            --text-main: #ffffff;
+            --text-secondary: #e0e0e0;
+        }
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, sans-serif;
+            background-color: var(--bg-dark);
+            background-image: radial-gradient(circle at 50% 20%, #1a1a1a 0%, #0d0d0d 80%);
+            color: var(--text-main);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .app-container {
+            width: 100%;
+            max-width: 420px;
+            background: var(--card-bg);
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            border-radius: 30px;
+            padding: 35px 24px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7), 0 0 30px rgba(212, 175, 55, 0.05);
+            backdrop-filter: blur(10px);
+        }
+        .profile-section {
+            margin-bottom: 30px;
+        }
+        .avatar-wrapper {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            padding: 4px;
+            background: var(--gold-gradient);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+        .avatar-inside {
+            width: 100%;
+            height: 100%;
+            background: #141414;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .avatar-inside i {
+            font-size: 45px;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        h1 {
+            font-size: 26px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+        .badge {
+            display: inline-block;
+            padding: 6px 16px;
+            background: rgba(212, 175, 55, 0.15);
+            border: 1px solid var(--gold-solid);
+            color: var(--gold-solid);
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 25px;
+        }
+        .links-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .action-item {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            padding: 16px 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .action-item:hover {
+            background: rgba(212, 175, 55, 0.1);
+            border-color: var(--gold-solid);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        .icon-box {
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            color: #ffffff;
+        }
+        .instagram-icon { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+        .whatsapp-icon { background: #25D366; }
+        .phone-icon { background: #007aff; }
+
+        .item-text {
+            flex-grow: 1;
+            text-align: right;
+            padding-right: 15px;
+        }
+        .item-text .title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 2px;
+        }
+        .item-text .subtitle {
+            font-size: 12px;
+            color: #a0a0a0;
+        }
+        .arrow-icon {
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 14px;
+            transition: transform 0.3s;
+        }
+        .action-item:hover .arrow-icon {
+            color: var(--gold-solid);
+            transform: translateX(-5px);
+        }
+        .brand-footer {
+            margin-top: 35px;
+            font-size: 12px;
+            color: #666;
+        }
+    </style>
 </head>
 <body>
-<div class="card-container">
-<div class="logo-area"><i class="fa-solid fa-gem"></i></div>
-<h1>Bijouterie Aourir</h1>
-<p class="tagline">مجوهرات أورير - ذهب 18 قيراط</p>
-<div class="links-container">
-<a href="https://www.instagram.com/bijouterie_aourir_or_18k?igsh=MjdqaXhrYzVuY2Yy" target="_blank" class="btn-link">
-<i class="fab fa-instagram"></i> <span>تابعنا على إنستغرام</span>
-</a>
-<a href="https://wa.me/212663376889" target="_blank" class="btn-link">
-<i class="fab fa-whatsapp"></i> <span>تواصل معنا عبر واتساب</span>
-</a>
-<a href="tel:+212663376889" class="btn-link">
-<i class="fas fa-phone-alt"></i> <span>اتصال هاتفي مباشر</span>
-</a>
-</div>
-</div>
+
+    <div class="app-container">
+        <div class="profile-section">
+            <div class="avatar-wrapper">
+                <div class="avatar-inside">
+                    <i class="fa-solid fa-gem"></i>
+                </div>
+            </div>
+            <h1>Bijouterie Aourir</h1>
+            <span class="badge"><i class="fa-solid fa-crown"></i> ذهب 18 قيراط</span>
+        </div>
+
+        <div class="links-list">
+            <!-- إنستغرام -->
+            <a href="https://www.instagram.com/bijouterie_aourir_or_18k?igsh=MjdqaXhrYzVuY2Yy" target="_blank" class="action-item">
+                <div class="icon-box instagram-icon">
+                    <i class="fab fa-instagram"></i>
+                </div>
+                <div class="item-text">
+                    <div class="title">حساب إنستغرام</div>
+                    <div class="subtitle">شاهد أحدث تشكيلات الموديلات اليومية</div>
+                </div>
+                <i class="fas fa-chevron-left arrow-icon"></i>
+            </a>
+
+            <!-- واتساب -->
+            <a href="https://wa.me/212663376889" target="_blank" class="action-item">
+                <div class="icon-box whatsapp-icon">
+                    <i class="fab fa-whatsapp"></i>
+                </div>
+                <div class="item-text">
+                    <div class="title">تواصل عبر واتساب</div>
+                    <div class="subtitle">للطلب، الاستفسار أو حجز المجوهرات</div>
+                </div>
+                <i class="fas fa-chevron-left arrow-icon"></i>
+            </a>
+
+            <!-- اتصال مباشر -->
+            <a href="tel:+212663376889" class="action-item">
+                <div class="icon-box phone-icon">
+                    <i class="fas fa-phone-alt"></i>
+                </div>
+                <div class="item-text">
+                    <div class="title">إتصال هاتفي مباشر</div>
+                    <div class="subtitle">تواصل معنا فوراً عبر الهاتف</div>
+                </div>
+                <i class="fas fa-chevron-left arrow-icon"></i>
+            </a>
+        </div>
+
+        <div class="brand-footer">
+            &copy; 2026 Bijouterie Aourir
+        </div>
+    </div>
+
+</body>
+</html>
 </body>
 </html>
